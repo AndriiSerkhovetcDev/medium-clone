@@ -7,7 +7,7 @@ import {
   registerSuccessActions,
 } from '../actions/register.action';
 import { catchError, map, of, switchMap } from 'rxjs';
-import { ICurrentUser } from '../../../shared/types/currentUser.interface';
+import { ICurrentUser } from '@shared/types/currentUser.interface';
 
 @Injectable({
   providedIn: 'root',

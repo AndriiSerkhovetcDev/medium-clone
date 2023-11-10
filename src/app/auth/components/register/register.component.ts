@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { registerActions } from '../../store/actions/register.action';
-import { IAppState } from '../../../shared/types/appState.interface';
+import { IAppState } from '@shared/types/appState.interface';
 import { Observable } from 'rxjs';
 import { isSubmittingSelector } from '../../store/selectors';
 import { IRegisterRequest } from '../../types/registerRequest.interface';

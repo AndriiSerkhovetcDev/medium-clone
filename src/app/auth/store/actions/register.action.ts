@@ -2,7 +2,7 @@ import { createAction, props } from '@ngrx/store';
 
 import { ActionTypes } from '../actionTypes';
 import { IRegisterRequest } from '../../types/registerRequest.interface';
-import { ICurrentUser } from '../../../shared/types/currentUser.interface';
+import { ICurrentUser } from '@shared/types/currentUser.interface';
 
 export const registerActions = createAction(
   ActionTypes.REGISTER,

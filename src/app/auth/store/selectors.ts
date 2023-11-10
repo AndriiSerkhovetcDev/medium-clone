@@ -1,4 +1,4 @@
-import { IAppState } from '../../shared/types/appState.interface';
+import { IAppState } from '@shared/types/appState.interface';
 import { IAuthState } from '../types/authState.interface';
 import { createSelector } from '@ngrx/store';
 
