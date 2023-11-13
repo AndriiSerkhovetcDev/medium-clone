@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '@auth/services/auth/auth.service';
+import { PersistenceService } from '@shared/services/persistence.service';
+import { Router } from '@angular/router';
 import {
-  registerActions,
-  registerFailureActions,
-  registerSuccessActions,
-} from '../actions/register.action';
+  loginActions,
+  loginFailureActions,
+  loginSuccessActions,
+} from '@auth/store/actions/login.action';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ICurrentUser } from '@shared/types/currentUser.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PersistenceService } from '@shared/services/persistence.service';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class RegisterEffect {
-  register$ = createEffect(() =>
+export class LoginEffect {
+  login$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(registerActions),
+      ofType(loginActions),
       switchMap(({ request }) => {
-        return this.authService.register(request).pipe(
+        return this.authService.login(request).pipe(
           map((currentUser: ICurrentUser) => {
             this.presistenceService.set('accessToken', currentUser.token);
 
-            return registerSuccessActions({ currentUser });
+            return loginSuccessActions({ currentUser });
           }),
           catchError((error: HttpErrorResponse) => {
-            return of(registerFailureActions({ errors: error.error.errors }));
+            return of(loginFailureActions({ errors: error.error.errors }));
           }),
         );
       }),
@@ -37,12 +37,11 @@ export class RegisterEffect {
   redirectAfterSubmit$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccessActions),
+        ofType(loginSuccessActions),
         tap(() => this.router.navigate(['/'])),
       ),
     { dispatch: false },
   );
-
   constructor(
     private actions$: Actions,
     private authService: AuthService,
