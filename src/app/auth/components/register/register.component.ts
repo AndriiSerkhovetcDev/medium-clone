@@ -4,9 +4,13 @@ import { select, Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { registerActions } from '../../store/actions/register.action';
 import { IAppState } from '@shared/types/appState.interface';
-import { Observable } from 'rxjs';
-import { isSubmittingSelector } from '../../store/selectors';
+import { Observable, tap } from 'rxjs';
+import {
+  isSubmittingSelector,
+  validationErrorsSelector,
+} from '../../store/selectors';
 import { IRegisterRequest } from '../../types/registerRequest.interface';
+import { IBackendErrors } from '@auth/types/backendErrors.interface';
 
 @Component({
   selector: 'mc-register',
@@ -16,6 +20,7 @@ import { IRegisterRequest } from '../../types/registerRequest.interface';
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   public isSubmitting$: Observable<boolean>;
+  public backendErrors$: Observable<IBackendErrors | null>;
   constructor(
     private fb: FormBuilder,
     private store: Store<IAppState>,
@@ -28,6 +33,7 @@ export class RegisterComponent implements OnInit {
 
   private initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.backendErrors$ = this.store.pipe(select(validationErrorsSelector));
   }
 
   private initializeForm(): void {
