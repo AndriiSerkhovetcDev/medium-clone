@@ -10,7 +10,7 @@ export class PersistenceService {
     try {
       localStorage.setItem(key, JSON.stringify(data));
     } catch (e) {
-      console.log('Error saving to LocalStorage', e);
+      console.error('Error saving to LocalStorage', e);
     }
   }
 
