@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { registerActions } from '../../store/actions/register.action';
 import { IAppState } from '@shared/types/appState.interface';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
