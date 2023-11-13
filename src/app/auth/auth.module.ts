@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterComponent } from './components/register/register.component';
-import { reducers } from './store/reducers';
+import { reducers } from './store/reducers/reducers';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
 import { BackendErrorMessagesModule } from '@shared/modules/backend-error-messages/backendErrorMessages.module';

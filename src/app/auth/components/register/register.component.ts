@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '../../store/selectors';
+} from '../../store/selectors/selectors';
 import { IRegisterRequest } from '../../types/registerRequest.interface';
 import { IBackendErrors } from '@auth/types/backendErrors.interface';
 

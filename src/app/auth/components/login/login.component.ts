@@ -7,7 +7,7 @@ import { IAppState } from '@shared/types/appState.interface';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '@auth/store/selectors';
+} from '@auth/store/selectors/selectors';
 import { loginActions } from '@auth/store/actions/login.action';
 import { ILoginRequest } from '@auth/types/loginRequest.interface';
 
