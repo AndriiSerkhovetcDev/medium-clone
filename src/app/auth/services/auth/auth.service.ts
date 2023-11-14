@@ -30,5 +30,9 @@ export class AuthService {
     return this.http.post<IAuthResponse>(api, data).pipe(map(this.getUser));
   }
 
-  public logout() {}
+  public getCurrentUser(): Observable<ICurrentUser> {
+    const api = `${this._apiUrl}/user`;
+
+    return this.http.get<IAuthResponse>(api).pipe(map(this.getUser));
+  }
 }
