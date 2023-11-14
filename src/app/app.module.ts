@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from '@shared/modules/top-bar/top-bar.module';
 import { PersistenceService } from '@shared/services/persistence.service';
 import { AuthInterceptor } from '@shared/interceptors/auth/auth.interceptor';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { FeedComponent } from './shared/modules/feed/components/feed/feed.component';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
@@ -20,10 +22,16 @@ const storeModules = [
   StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
 ];
 
-const customModules = [AuthModule, TopBarModule];
+const sharedModules = [TopBarModule];
+const customModules = [AuthModule, GlobalFeedModule];
 @NgModule({
   declarations: [AppComponent],
-  imports: [...rootModules, ...storeModules, ...customModules],
+  imports: [
+    ...rootModules,
+    ...storeModules,
+    ...customModules,
+    ...sharedModules,
+  ],
   providers: [
     PersistenceService,
     {
