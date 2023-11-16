@@ -12,14 +12,15 @@ import { TopBarModule } from '@shared/modules/top-bar/top-bar.module';
 import { PersistenceService } from '@app/shared/services/persistence/persistence.service';
 import { AuthInterceptor } from '@shared/interceptors/auth/auth.interceptor';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
-import { FeedComponent } from './shared/modules/feed/components/feed/feed.component';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
 const storeModules = [
-  StoreModule.forRoot({}, {}),
+  StoreModule.forRoot({ router: routerReducer }, {}),
   EffectsModule.forRoot([]),
   StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+  StoreRouterConnectingModule.forRoot(),
 ];
 
 const sharedModules = [TopBarModule];
