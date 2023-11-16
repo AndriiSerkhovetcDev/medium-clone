@@ -9,7 +9,7 @@ import {
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ICurrentUser } from '@shared/types/currentUser.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PersistenceService } from '@shared/services/persistence.service';
+import { PersistenceService } from '@app/shared/services/persistence/persistence.service';
 import { Router } from '@angular/router';
 
 @Injectable({

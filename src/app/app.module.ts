@@ -9,7 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from '@shared/modules/top-bar/top-bar.module';
-import { PersistenceService } from '@shared/services/persistence.service';
+import { PersistenceService } from '@app/shared/services/persistence/persistence.service';
 import { AuthInterceptor } from '@shared/interceptors/auth/auth.interceptor';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { FeedComponent } from './shared/modules/feed/components/feed/feed.component';
