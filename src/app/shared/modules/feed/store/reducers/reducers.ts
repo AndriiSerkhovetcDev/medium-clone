@@ -5,10 +5,7 @@ import {
   getFeedFailureAction,
   getFeedSuccessAction,
 } from '../actions/get-feed.action';
-import {
-  routerNavigatedAction,
-  routerNavigationAction,
-} from '@ngrx/router-store';
+import { routerNavigationAction } from '@ngrx/router-store';
 
 const initialState: IFeedState = {
   isLoading: false,
