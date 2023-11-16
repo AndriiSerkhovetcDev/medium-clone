@@ -17,7 +17,7 @@ import {
 import { environment } from '@environments/environment';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DestroyObsService } from '@app/shared/services/destroy-obs/destroy-obs.service';
-import { parseUrl, stringify } from 'query-string/base';
+import { parseUrl, stringify } from 'query-string';
 
 @Component({
   selector: 'mc-feed',
@@ -57,13 +57,13 @@ export class FeedComponent implements OnInit {
   private fetchFeed(): void {
     const offset = this.currentPage * this.limit - this.limit;
     const parsedUrl = parseUrl(this.apiUrlProps);
-    const strigifiedParams = stringify({
+    const stringifierParams = stringify({
       limit: this.limit,
       offset,
       ...parsedUrl.query,
     });
-    const apiWithParams = `${parsedUrl.url}?${strigifiedParams}`;
-    
+    const apiWithParams = `${parsedUrl.url}?${stringifierParams}`;
+
     this.store.dispatch(getFeedAction({ url: apiWithParams }));
   }
 
