@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { ICurrentUser } from '@shared/types/currentUser.interface';
 import { AuthService } from '@auth/services/auth/auth.service';
-import { PersistenceService } from '@shared/services/persistence.service';
+import { PersistenceService } from '@app/shared/services/persistence/persistence.service';
 import {
   getCurrentUserAction,
   getCurrentUserFailureAction,

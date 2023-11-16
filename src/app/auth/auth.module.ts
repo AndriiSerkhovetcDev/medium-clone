@@ -10,7 +10,7 @@ import { reducers } from './store/reducers/reducers';
 import { AuthService } from './services/auth/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
 import { BackendErrorMessagesModule } from '@shared/modules/backend-error-messages/backendErrorMessages.module';
-import { PersistenceService } from '@shared/services/persistence.service';
+import { PersistenceService } from '@app/shared/services/persistence/persistence.service';
 import { LoginComponent } from './components/login/login.component';
 import { LoginEffect } from '@auth/store/effects/login.effect';
 import { UserEffects } from '@auth/store/effects/user.effects';

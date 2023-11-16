@@ -1,15 +1,14 @@
-<div *ngIf="isLoading$ | async">Loading...</div>
-<div *ngIf="error$ | async">Some error happened...</div>
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-error-message
+  *ngIf="error$ | async as error"
+  [errorMessage]="error"
+></mc-error-message>
 
 <div *ngIf="feed$ | async as feed">
   <div class="article-preview" *ngFor="let article of feed.articles">
     <div class="article-meta">
       <a [routerLink]="['/profiles', article.author.username]">
-        <img
-          class="author-image"
-          [src]="article.author.image"
-          alt="author-image"
-        />
+        <img [src]="article.author.image" alt="author-image" />
       </a>
 
       <div class="info">
@@ -27,5 +26,10 @@
       HERE LIST OF TAGS
     </a>
   </div>
-  PAGINATIONS
+  <mc-pagination
+    [total]="(feed$ | async).articlesCount"
+    [limit]="limit"
+    [currentPage]="currentPage"
+    [url]="baseUrl"
+  ></mc-pagination>
 </div>
