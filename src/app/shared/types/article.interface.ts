@@ -1,7 +1,7 @@
-import { IProfile } from "./profile.interface";
+import { IProfile } from './profile.interface';
 
 export interface IArticle {
-  author: IProfile
+  author: IProfile;
   body: string;
   description: string;
   favorited: boolean;
@@ -10,4 +10,5 @@ export interface IArticle {
   tagList: string[];
   title: string;
   updatedAt: string;
+  createAt: string;
 }
