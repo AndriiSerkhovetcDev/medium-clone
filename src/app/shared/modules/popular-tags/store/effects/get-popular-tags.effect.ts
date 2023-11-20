@@ -14,7 +14,7 @@ import { IGetPopularTagsResponse } from '@shared/modules/popular-tags/types/get-
   providedIn: 'root',
 })
 export class GetPopularTagsEffect {
-  getFeed$ = createEffect(() =>
+  getPopularTags$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getPopularTagsAction),
       switchMap(() => {
