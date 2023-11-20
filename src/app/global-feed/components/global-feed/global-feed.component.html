@@ -4,9 +4,11 @@
     <div class="row">
       <div class="col-md-9">
         FEED TOGGLER
-        <mc-feed [apiUrl]="apiUrl"></mc-feed>
+        <mc-feed [apiUrl]="apiArticlesUrl"></mc-feed>
       </div>
-      <div class="col-md-3">POPULAR TAGS</div>
+      <div class="col-md-3">
+        <mc-popular-tags [apiUrl]='apiTagsUrl'></mc-popular-tags>
+      </div>
     </div>
   </div>
 </div>
