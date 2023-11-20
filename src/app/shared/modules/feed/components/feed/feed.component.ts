@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
+  OnChanges,
   OnInit,
+  SimpleChanges,
 } from '@angular/core';
 import { IAppState } from '@app/shared/types/appState.interface';
 import { Store, select } from '@ngrx/store';
@@ -25,7 +27,7 @@ import { parseUrl, stringify } from 'query-string';
   styleUrls: ['./feed.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
   @Input('apiUrl') apiUrlProps: string;
 
   public feed$: Observable<IGetFeedResponse | null>;
@@ -41,6 +43,17 @@ export class FeedComponent implements OnInit {
     private route: ActivatedRoute,
     private destroy$: DestroyObsService,
   ) {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    const isApiUrlChanged =
+      !changes['apiUrlProps'].firstChange &&
+      changes['apiUrlProps'].currentValue !==
+        changes['apiUrlProps'].previousValue;
+
+    if (isApiUrlChanged) {
+      this.fetchFeed();
+    }
+  }
 
   ngOnInit(): void {
     this.initializeValues();

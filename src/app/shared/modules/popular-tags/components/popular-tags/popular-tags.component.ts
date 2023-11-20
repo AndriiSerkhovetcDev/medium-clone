@@ -35,6 +35,6 @@ export class PopularTagsComponent implements OnInit {
   }
 
   private fetchTags(): void {
-    this.store.dispatch(getPopularTagsAction({ url: this.apiUrlProps }));
+    this.store.dispatch(getPopularTagsAction());
   }
 }

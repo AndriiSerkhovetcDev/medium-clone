@@ -13,6 +13,8 @@ import { PersistenceService } from '@app/shared/services/persistence/persistence
 import { AuthInterceptor } from '@shared/interceptors/auth/auth.interceptor';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { YourFeedModule } from '@app/your-feed/your-feed.module';
+import { TagFeedModule } from '@app/tag-feed/tag-feed.module';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
@@ -24,7 +26,12 @@ const storeModules = [
 ];
 
 const sharedModules = [TopBarModule];
-const customModules = [AuthModule, GlobalFeedModule];
+const customModules = [
+  AuthModule,
+  GlobalFeedModule,
+  YourFeedModule,
+  TagFeedModule,
+];
 @NgModule({
   declarations: [AppComponent],
   imports: [
