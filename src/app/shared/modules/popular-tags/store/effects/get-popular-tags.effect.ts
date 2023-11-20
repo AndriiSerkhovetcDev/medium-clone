@@ -18,8 +18,8 @@ export class GetPopularTagsEffect {
   getFeed$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getPopularTagsAction),
-      switchMap(({ url }) => {
-        return this.tagService.getPopularTags(url).pipe(
+      switchMap(() => {
+        return this.tagService.getPopularTags().pipe(
           map((tags: IGetPopularTagsResponse) => {
             return getPopularTagsSuccessAction(tags);
           }),

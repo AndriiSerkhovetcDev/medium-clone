@@ -2,10 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { ActionTypes } from '@shared/modules/popular-tags/store/actionTypes';
 import { PopularTagType } from '@shared/types/popularTag.type';
 
-export const getPopularTagsAction = createAction(
-  ActionTypes.GET_TAGS,
-  props<{ url: string }>(),
-);
+export const getPopularTagsAction = createAction(ActionTypes.GET_TAGS);
 
 export const getPopularTagsSuccessAction = createAction(
   ActionTypes.GET_TAGS_SUCCESS,
