@@ -8,7 +8,6 @@ import {
   getPopularTagsFailureAction,
   getPopularTagsSuccessAction,
 } from '@shared/modules/popular-tags/store/actions/get-popular-tags.action';
-import { PopularTagType } from '@shared/types/popularTag.type';
 import { IGetPopularTagsResponse } from '@shared/modules/popular-tags/types/get-popular-tags-response.interface';
 
 @Injectable({
