@@ -15,6 +15,7 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { YourFeedModule } from '@app/your-feed/your-feed.module';
 import { TagFeedModule } from '@app/tag-feed/tag-feed.module';
+import { ArticleModule } from '@app/article/article.module';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
@@ -31,6 +32,7 @@ const customModules = [
   GlobalFeedModule,
   YourFeedModule,
   TagFeedModule,
+  ArticleModule,
 ];
 @NgModule({
   declarations: [AppComponent],
