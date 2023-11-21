@@ -1,0 +1,9 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-error-message
+  *ngIf="error$ | async as error"
+  [errorMessage]="error"
+></mc-error-message>
+
+<ng-container *ngIf='(article$ | async) as article'>
+
+</ng-container>
