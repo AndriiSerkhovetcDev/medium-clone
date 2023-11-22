@@ -19,7 +19,7 @@ export class DeleteArticleEffect {
       ofType(deleteArticleAction),
       switchMap(({ slug }) => {
         return this.articleService.deleteArticle(slug).pipe(
-          map((article) => {
+          map(() => {
             return deleteArticleSuccessAction();
           }),
           catchError(() => {

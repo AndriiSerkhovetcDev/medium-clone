@@ -11,7 +11,6 @@ import {
   isLoadingSelector,
 } from '@app/article/store/selectors/selectors';
 import { currentUserSelector } from '@auth/store/selectors/selectors';
-import { ArticleService } from '@app/article/services/article/article.service';
 import { deleteArticleAction } from '@app/article/store/actions/delete-article.action';
 
 @Component({
@@ -28,7 +27,6 @@ export class ArticleComponent implements OnInit {
   constructor(
     private store: Store<IAppState>,
     private route: ActivatedRoute,
-    private articleService: ArticleService,
   ) {}
 
   ngOnInit(): void {
