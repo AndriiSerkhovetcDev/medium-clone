@@ -8,7 +8,7 @@ import { IArticle } from '@shared/types/article.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class ArticleService {
+export class SharedArticleService {
   private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
