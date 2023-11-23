@@ -32,7 +32,6 @@ export class CreateArticleComponent implements OnInit {
   }
 
   private initializeValues(): void {
-    console.log('initializeValues');
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
     this.errors$ = this.store.pipe(select(validationErrorsSelector));
   }
