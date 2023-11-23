@@ -6,6 +6,7 @@ import { ICurrentUser } from '@shared/types/currentUser.interface';
 import { environment } from '@environments/environment';
 import { IAuthResponse } from '../../types/authResponse.interface';
 import { ILoginRequest } from '@auth/types/loginRequest.interface';
+import { ICurrentUserInput } from '@shared/types/current-user-input.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,15 @@ export class AuthService {
     const api = `${this._apiUrl}/user`;
 
     return this.http.get<IAuthResponse>(api).pipe(map(this.getUser));
+  }
+
+  public updateCurrentUser(
+    currentUserInput: ICurrentUserInput,
+  ): Observable<ICurrentUser> {
+    const api = `${this._apiUrl}/user`;
+
+    return this.http
+      .put<IAuthResponse>(api, { user: currentUserInput })
+      .pipe(map(this.getUser));
   }
 }

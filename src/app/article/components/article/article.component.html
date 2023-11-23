@@ -1,3 +1,8 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-error-message
+  *ngIf="error$ | async as error"
+  [errorMessage]="error"
+></mc-error-message>
 <ng-container *ngIf='(article$ | async) as article'>
   <div class='article-page'>
     <div class='banner'>
@@ -16,7 +21,7 @@
             </span>
           </div>
           <span *ngIf="isAuthor$ | async">
-            <a [routerLink]="['/article', article.slug, 'edit']" class='btn btn-outline-secondary btn-sm'>
+            <a [routerLink]="['/articles', article.slug, 'edit']" class='btn btn-outline-secondary btn-sm'>
               <i class='ion-edit'></i>
               Edit Article
             </a>
@@ -28,17 +33,12 @@
       </div>
     </div>
     <div class='container page'>
-      <mc-loading *ngIf="isLoading$ | async"></mc-loading>
-      <mc-error-message
-        *ngIf="error$ | async as error"
-        [errorMessage]="error"
-      ></mc-error-message>
       <div class='row article-content'>
         <div class='col-xs-12'>
           <div>
             <p>{{ article.body }}</p>
           </div>
-          <mc-tag-list [tags]="article.tagList"></mc-tag-list>
+          <mc-tag-list *ngIf="article.tagList" [tags]="article.tagList"></mc-tag-list>
         </div>
       </div>
 
