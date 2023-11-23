@@ -3,7 +3,7 @@ import { IAppState } from '@shared/types/appState.interface';
 import { select, Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { getArticleAction } from '@app/article/store/actions/get-article.action';
-import { combineLatestWith, map, Observable, of } from 'rxjs';
+import { combineLatestWith, map, Observable } from 'rxjs';
 import { IArticle } from '@shared/types/article.interface';
 import {
   articleSelector,
