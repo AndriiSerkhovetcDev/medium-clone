@@ -16,6 +16,9 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { YourFeedModule } from '@app/your-feed/your-feed.module';
 import { TagFeedModule } from '@app/tag-feed/tag-feed.module';
 import { ArticleModule } from '@app/article/article.module';
+import { CreateArticleModule } from '@app/create-article/create-article.module';
+import { UpdateArticleModule } from '@app/update-article/update-article.module';
+import { SettingsModule } from '@app/setting/settings.module';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
@@ -32,7 +35,10 @@ const customModules = [
   GlobalFeedModule,
   YourFeedModule,
   TagFeedModule,
+  CreateArticleModule,
+  UpdateArticleModule,
   ArticleModule,
+  SettingsModule,
 ];
 @NgModule({
   declarations: [AppComponent],
