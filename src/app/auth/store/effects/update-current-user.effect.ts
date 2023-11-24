@@ -9,6 +9,7 @@ import {
   updateCurrentUserFailureActions,
   updateCurrentUserSuccessActions,
 } from '@auth/store/actions/update-current-user.action';
+import { PersistenceService } from '@shared/services/persistence/persistence.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +21,8 @@ export class UpdateCurrentUserEffect {
       switchMap(({ currentUserInput }) => {
         return this.authService.updateCurrentUser(currentUserInput).pipe(
           map((currentUser: ICurrentUser) => {
+            this.presistenceService.set('accessToken', currentUser.token);
+
             return updateCurrentUserSuccessActions({ currentUser });
           }),
           catchError((error: HttpErrorResponse) => {
@@ -34,5 +37,6 @@ export class UpdateCurrentUserEffect {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
+    private presistenceService: PersistenceService,
   ) {}
 }

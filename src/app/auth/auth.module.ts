@@ -17,6 +17,7 @@ import { UserEffects } from '@auth/store/effects/user.effects';
 import { reducers } from '@auth/store/reducers/reducers';
 
 import { UpdateCurrentUserEffect } from '@auth/store/effects/update-current-user.effect';
+import { LogoutEffect } from '@auth/store/effects/logout.effect';
 
 const routes: Routes = [
   {
@@ -41,6 +42,7 @@ const routes: Routes = [
       LoginEffect,
       UserEffects,
       UpdateCurrentUserEffect,
+      LogoutEffect,
     ]),
     BackendErrorMessagesModule,
   ],

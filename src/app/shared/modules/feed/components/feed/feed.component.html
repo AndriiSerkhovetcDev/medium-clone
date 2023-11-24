@@ -18,7 +18,13 @@
         <span class="date">{{ article.createAt }}</span>
       </div>
 
-      <div class="pull-xs-right">ADD TO FAVORITE</div>
+      <div class="pull-xs-right">
+       <mc-add-to-favorite
+         [slug]='article.slug'
+         [isFavorited]='article.favorited'
+         [favoritesCount]='article.favoritesCount'>
+       </mc-add-to-favorite>
+      </div>
     </div>
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>

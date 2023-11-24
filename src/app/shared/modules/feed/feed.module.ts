@@ -10,6 +10,7 @@ import { LoadingModule } from '../loading/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { TagListModule } from '@shared/modules/tag-list/tag-list.module';
 import { reducers } from '@shared/modules/feed/store/reducers/reducers';
+import { AddToFavoriteModule } from '@shared/modules/add-to-favorite/add-to-favorite.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -22,6 +23,7 @@ import { reducers } from '@shared/modules/feed/store/reducers/reducers';
     LoadingModule,
     PaginationModule,
     TagListModule,
+    AddToFavoriteModule,
   ],
   exports: [FeedComponent],
 })
