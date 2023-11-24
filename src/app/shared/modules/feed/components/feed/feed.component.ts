@@ -89,6 +89,4 @@ export class FeedComponent implements OnInit, OnChanges {
         this.fetchFeed();
       });
   }
-
-  public addToFavorite(article: IArticle) {}
 }

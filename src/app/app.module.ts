@@ -19,7 +19,6 @@ import { ArticleModule } from '@app/article/article.module';
 import { CreateArticleModule } from '@app/create-article/create-article.module';
 import { UpdateArticleModule } from '@app/update-article/update-article.module';
 import { SettingsModule } from '@app/setting/settings.module';
-import { AddToFavoriteModule } from '@shared/modules/add-to-favorite/add-to-favorite.module';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
