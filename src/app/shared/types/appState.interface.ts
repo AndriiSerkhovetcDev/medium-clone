@@ -7,11 +7,11 @@ import { IUpdateArticleState } from '@app/update-article/types/update-article-st
 import { ISettingsState } from '@app/setting/types/update-current-user-state.interface';
 
 export interface IAppState {
-  auth: IAuthState;
-  feed: IFeedState;
-  tags: IPopularTagsState;
   article: IArticleState;
+  auth: IAuthState;
   createArticle: ICreateArticleState;
-  updateArticle: IUpdateArticleState;
+  feed: IFeedState;
   settings: ISettingsState;
+  tags: IPopularTagsState;
+  updateArticle: IUpdateArticleState;
 }

@@ -20,6 +20,7 @@ import { environment } from '@environments/environment';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DestroyObsService } from '@app/shared/services/destroy-obs/destroy-obs.service';
 import { parseUrl, stringify } from 'query-string';
+import { IArticle } from '@shared/types/article.interface';
 
 @Component({
   selector: 'mc-feed',
@@ -88,4 +89,6 @@ export class FeedComponent implements OnInit, OnChanges {
         this.fetchFeed();
       });
   }
+
+  public addToFavorite(article: IArticle) {}
 }
