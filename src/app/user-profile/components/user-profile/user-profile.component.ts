@@ -10,7 +10,6 @@ import {
   isLoadingSelector,
   userProfileSelector,
 } from '@app/user-profile/store/selectors/selectors';
-import { articleSelector } from '@app/article/store/selectors/selectors';
 import { currentUserSelector } from '@auth/store/selectors/selectors';
 
 @Component({

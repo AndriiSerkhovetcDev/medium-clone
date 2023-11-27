@@ -6,7 +6,6 @@ import {
   getUserProfileSuccessAction,
 } from '@app/user-profile/store/actions/get-user-proflle.action';
 import { routerNavigationAction } from '@ngrx/router-store';
-import { IArticleState } from '@app/article/types/article-state.interface';
 
 const initialState: IUserProfileState = {
   isLoading: false,
