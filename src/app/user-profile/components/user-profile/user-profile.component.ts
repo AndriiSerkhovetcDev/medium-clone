@@ -32,7 +32,7 @@ export class UserProfileComponent implements OnInit {
     private router: Router,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.route.params.subscribe((res) => {
       this.slug = res['slug'];
       this.initializeValues();
