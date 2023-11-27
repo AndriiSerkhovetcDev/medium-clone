@@ -1,4 +1,4 @@
-export interface IProfile {
+export interface IUserProfile {
   bio: string | null;
   following: boolean;
   image: string;

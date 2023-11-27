@@ -3,7 +3,7 @@ import { IAppState } from '@shared/types/appState.interface';
 import { select, Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { getArticleAction } from '@app/article/store/actions/get-article.action';
-import { combineLatestWith, map, Observable } from 'rxjs';
+import { combineLatestWith, filter, map, Observable } from 'rxjs';
 import { IArticle } from '@shared/types/article.interface';
 import {
   articleSelector,
@@ -45,10 +45,12 @@ export class ArticleComponent implements OnInit {
   private isAuthor(): Observable<boolean> {
     return this.store.pipe(
       select(articleSelector),
+      filter(Boolean),
       combineLatestWith(this.store.pipe(select(currentUserSelector))),
+      filter(Boolean),
       map(
         ([article, currentUser]) =>
-          article?.author?.username === currentUser?.username,
+          article.author.username === currentUser.username,
       ),
     );
   }
