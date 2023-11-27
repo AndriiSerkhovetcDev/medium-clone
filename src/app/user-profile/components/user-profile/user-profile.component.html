@@ -1,0 +1,58 @@
+<mc-loading *ngIf="isLoading$ | async"></mc-loading>
+<mc-error-message
+  *ngIf="error$ | async as error"
+  [errorMessage]="error"
+></mc-error-message>
+<div class='profile-page' *ngIf='userProfile$ | async as userProfile'>
+  <div class='user-info'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-xs-12 col-md-10 offset-md-1'>
+          <img [src]="userProfile.image" alt="user-image">
+          <h4>{{ userProfile.username }}</h4>
+          <p>{{ userProfile.bio }}</p>
+          <div>
+            FOLLOW BUTTON USER
+            <a
+              *ngIf='isAuthor$ | async'
+               class='btn btn-sm btn-outline-secondary action-btn'
+              [routerLink]="['/settings']"
+            >
+              Edit Profile Settings
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-12 col-md-10 offset-md-1'>
+        <div class='articles-toggle'>
+          <ul class='nav nav-pills outline-active'>
+            <li class='nav-item'>
+              <a
+                [routerLink]="['/profiles', userProfile.username]"
+                [routerLinkActiveOptions]="{exact: true}"
+                routerLinkActive="active"
+                class='nav-link'
+              >
+                My Posts
+              </a>
+            </li>
+            <li class='nav-item'>
+              <a
+                [routerLink]="['/profiles', userProfile.username, 'favorites']"
+                routerLinkActive="active"
+                class='nav-link'
+              >
+                Favorites Posts
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <mc-feed [apiUrl]="apiUrl"></mc-feed>
+    </div>
+  </div>
+</div>

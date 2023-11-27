@@ -19,6 +19,7 @@ import { ArticleModule } from '@app/article/article.module';
 import { CreateArticleModule } from '@app/create-article/create-article.module';
 import { UpdateArticleModule } from '@app/update-article/update-article.module';
 import { SettingsModule } from '@app/setting/settings.module';
+import { UserProfileModule } from '@app/user-profile/user-profile.module';
 
 const rootModules = [BrowserModule, AppRoutingModule, HttpClientModule];
 
@@ -39,6 +40,7 @@ const customModules = [
   UpdateArticleModule,
   ArticleModule,
   SettingsModule,
+  UserProfileModule,
 ];
 @NgModule({
   declarations: [AppComponent],

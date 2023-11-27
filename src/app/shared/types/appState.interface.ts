@@ -5,6 +5,7 @@ import { IArticleState } from '@app/article/types/article-state.interface';
 import { ICreateArticleState } from '@app/create-article/types/create-article-state.interface';
 import { IUpdateArticleState } from '@app/update-article/types/update-article-state';
 import { ISettingsState } from '@app/setting/types/update-current-user-state.interface';
+import { IUserProfileState } from '@app/user-profile/types/user-profile-state.interface';
 
 export interface IAppState {
   article: IArticleState;
@@ -14,4 +15,5 @@ export interface IAppState {
   settings: ISettingsState;
   tags: IPopularTagsState;
   updateArticle: IUpdateArticleState;
+  userProfile: IUserProfileState;
 }

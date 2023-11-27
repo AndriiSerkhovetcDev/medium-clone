@@ -1,7 +1,7 @@
-import { IProfile } from './profile.interface';
+import { IUserProfile } from './profile.interface';
 
 export interface IArticle {
-  author: IProfile;
+  author: IUserProfile;
   body: string;
   description: string;
   favorited: boolean;
