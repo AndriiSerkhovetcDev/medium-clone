@@ -24,7 +24,6 @@ export class UserProfileComponent implements OnInit {
   public apiUrl: string;
   public userProfile$: Observable<IUserProfile>;
   public isAuthor$: Observable<boolean>;
-  public slugTest: string;
 
   constructor(
     private store: Store<IAppState>,
